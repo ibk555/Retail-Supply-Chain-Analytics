@@ -1,0 +1,1 @@
+SELECT location_id, COUNT(*) AS cnt FROM silver__location_master__lite GROUP BY 1 HAVING COUNT(*) > 1;

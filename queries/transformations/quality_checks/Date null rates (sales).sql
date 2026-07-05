@@ -1,0 +1,1 @@
+SELECT COUNT(*) AS total_rows, SUM(CASE WHEN transaction_date IS NULL THEN 1 ELSE 0 END) AS null_dates FROM silver__sales_transactions__lite;

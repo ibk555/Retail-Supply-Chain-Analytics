@@ -1,0 +1,1 @@
+SELECT DISTINCT s.sku FROM silver__sales_transactions__lite s LEFT JOIN silver__product_master__lite p ON s.sku = p.sku WHERE p.sku IS NULL LIMIT 100;

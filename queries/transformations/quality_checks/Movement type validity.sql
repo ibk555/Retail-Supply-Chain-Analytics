@@ -1,0 +1,1 @@
+SELECT movement_type, COUNT(*) AS cnt FROM silver__inventory_movements__lite GROUP BY 1 ORDER BY cnt DESC;

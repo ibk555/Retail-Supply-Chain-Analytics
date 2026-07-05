@@ -1,0 +1,1 @@
+SELECT sku, COUNT(*) AS cnt FROM silver__product_master__lite GROUP BY 1 HAVING COUNT(*) > 1;

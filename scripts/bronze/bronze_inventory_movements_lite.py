@@ -1,0 +1,32 @@
+from pathlib import Path
+import duckdb
+
+def main():
+    # Define the path to the DuckDB database file
+    script_dir = Path(__file__).resolve().parent
+    db_path = r"C:\Users\araro\OneDrive\Desktop\Supply Chain Analytics\supply_chain_analytics.duckdb"
+
+    # Connect to the DuckDB database
+    conn = duckdb.connect(database=db_path)
+
+    # Execute the query to create the bronze__inventory_movements__lite table
+    conn.execute("""
+                CREATE OR REPLACE TABLE bronze__inventory_movements__lite
+                 AS
+                SELECT 
+                    movement_id,     
+                    movement_date,    
+                    movement_type,    
+                    sku,
+                    from_location_id,
+                    to_location_id,
+                    qty
+                FROM raw__inventory_movements__lite;
+    """)
+
+    # Close the connection
+    conn.close()
+
+if __name__ == "__main__":
+    main()
+    print("✅ created bronze__inventory_movements__lite.py executed successfully.")
